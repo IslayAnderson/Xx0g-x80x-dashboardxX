@@ -1,5 +1,54 @@
 @import '../node_modules/reset-css/sass/reset';
 
+body{
+    background-color: #000;
+}
+
 #background{
-    background-color: pink;
+    position: absolute;
+    top:-25vh;
+    left:-25vw;
+    z-index:0;
+    .stage{
+        perspective: 1200px;
+        perspective-origin: 50% 50%;
+        .projector{
+            transform-style: preserve-3d;
+            transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+            transition: all 1s;
+            animation-name: jiggle;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+        }
+        .child{
+            background-size: 40px 40px;
+            background-image:
+                linear-gradient(to right, green 5px, transparent 1px),
+                linear-gradient(to bottom, green 5px, transparent 1px);
+            transform-style: preserve-3d;
+            transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+            transition: all 1s;
+        }
+    }
+}
+#background, #background > .stage, #background > .stage .child, #background > .stage .projector{
+    width:150vw;
+    height:150vh;
+}
+@keyframes jiggle {
+    0%   {transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg)}
+    25%  {transform: rotateX(-1deg) rotateY(1deg) rotateZ(-1deg)}
+    50%  {transform: rotateX(0.5deg) rotateY(-0.5deg) rotateZ(0.5deg)}
+    75%  {transform: rotateX(1deg) rotateY(-1deg) rotateZ(1deg)}
+    100% {transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg)}
+}
+
+#interface{
+    position: absolute;
+    top:12vh;
+    left:12vw;
+    z-index:0;
+    width:75vw;
+    height:75vh;
+    background:pink;
 }
