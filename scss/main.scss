@@ -1,7 +1,13 @@
 @import '../node_modules/reset-css/sass/reset';
 
+$yellow:#C9CA4C;
+$green:#55CA4C;
+
 body{
     background-color: #000;
+    width:100vw;
+    height:100vh;
+    overflow: hidden;
 }
 
 #background{
@@ -22,9 +28,11 @@ body{
         }
         .child{
             background-size: 40px 40px;
-            background-image:
+            background-image: //url('/img/background.svg')
                 linear-gradient(to right, green 5px, transparent 1px),
                 linear-gradient(to bottom, green 5px, transparent 1px);
+            //background-size: contain;
+            //background-repeat: no-repeat;
             transform-style: preserve-3d;
             transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
             transition: all 1s;
@@ -32,8 +40,8 @@ body{
     }
 }
 #background, #background > .stage, #background > .stage .child, #background > .stage .projector{
-    width:150vw;
-    height:150vh;
+    width:175vw;
+    height:175vh;
 }
 @keyframes jiggle {
     0%   {transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg)}
@@ -50,5 +58,39 @@ body{
     z-index:0;
     width:75vw;
     height:75vh;
-    background:pink;
+    //background:pink;
+}
+#home{
+    .layout{
+        display: flex;
+        .goober{
+            width:60%;
+            img{
+                opacity:0.95
+            }
+        }
+        .menu{
+            display:flex;
+            width:40%;
+            justify-content: center;
+            align-items: center;
+            .item{
+                button{
+                    background: unset;
+                    border: unset;
+                    color: $yellow;
+                    text-align: left;
+                    width: 250px;
+                    height: 80px;
+                }
+                button > svg{
+                    transition: all 0.5s;
+                }
+                button:hover > svg, button:active > svg, button:focus > svg{
+                    transform: scale(1.15);
+                    filter: hue-rotate(45deg);
+                }
+            }
+        }
+    }
 }
