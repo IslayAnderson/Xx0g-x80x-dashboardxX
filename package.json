@@ -1,0 +1,15 @@
+{
+  "name": "Xx0g-x80x-dashboardxX",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gulp": "gulp"
+  },
+  "dependencies": {
+    "gulp": "^5.0.0",
+    "gulp-sass": "^5.1.0",
+    "reset-css": "^5.0.2",
+    "sass": "^1.79.4"
+  }
+}
